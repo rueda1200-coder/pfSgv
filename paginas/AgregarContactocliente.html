@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informacion contracto Cliente</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="css/formularios.css">
+
+</head>
+
+<body>
+    <!--Encabezado -->
+    <header class="encabezado">
+        <nav class="navbar">
+            <div class="title-section">
+                <a href="Index.html">
+                    <img src="images/logo.png" alt="Logo empresa" class="logo" >
+                    <h1>Sistema Administrativo Veterinario</h1>
+                </a>
+            </div>
+            <!--opciones menu -->
+            <ul class="nav-list">
+                <li><a href="AgregarContactocliente.html">Cargar Contacto cliente</a></li>
+                <li><a href="AgregarInformacionMascota.html">Cargar Informacion paciente</a></li>
+                <li><a href="ListadoPacientes.html">Listado Pacientes</a></li>
+                <li><a href="ListadoClientes.html">Listado Clientes</a></li>
+                <li><a href="ListadoClientes.html">Listado Citas</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="form-container">
+            <div class="login-container">
+                <form id="formaulaio-paciente">
+                    <h2>Agregar Contacto Cliente</h2>
+
+                    <label for="nombrePropiearioTxt">Nombre cliente:</label>
+                    <input type="text" id="nombrePropiearioTxt" name="nombrePropiearioTxt" required placeholder="Ingresar nombre del propietario">
+
+                    <label for="apellidoPropiearioTxt">Apellido cliente:</label>
+                    <input type="text" id="apellidoPropiearioTxt" name="apellidoPropiearioTxt" required placeholder="Ingresar apellido del propietario">
+
+                    <label for="tipoDocumentoTxt">Tipo de Documento:</label>
+                    <select id="tipoDocumentoTxt" name="tipoDocumentoTxt">
+                        <option value="cedula">C.c</option>
+                        <option value="pasaporte">PA</option>
+                        <option value="pasaporte">CE</option>
+                        <option value="pasaporte">PPT</option>
+                        <option value="pasaporte">PEP</option>
+                    </select>
+
+                    <label for="numeroDocumentoTxt">Numero de Documuento:</label>
+                    <input type="number" id="numeroDocumentoTxt" name="numeroDocumentoTxt" required placeholder="Ingresar numero de documento">
+
+                    <label for="emailPropietarioTxt">E-mail:</label>
+                    <input type="email" id="emailPropietarioTxt" name="emailPropietarioTxt" required placeholder="Ingresar el correo E-mail">
+                    
+                    <label for="numeroTelefonoTxt">Numero de Teléfono:</label>
+                    <input type="number" step="any" id="numeroTelefonoTxt" name="numeroTelefonoTxt" required placeholder="Ingresar numero teléfonico">
+                    
+                    <label for="fechaRegistroTxt">Fecha Registro:</label>
+                    <input type="date" id="fechaRegistroTxt" name="fechaNacimientoMascotaTxt" required>
+
+                    <button type="submit" onclick="agregarPaciente()">Agregar Paciente</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p></p>
+
+    </footer>
+    <script src="js/agregarPacientes.js"></script>
+
+
+</body>
+
+</html>

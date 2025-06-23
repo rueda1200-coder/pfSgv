@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Mascotas</title>
+    <link rel="stylesheet" href="css/tablas.css">
+</head>
+
+<body>
+    <!-- Barra lateral (Encabezado) -->
+    <header class="encabezado">
+        <nav class="navbar">
+            <div class="title-section">
+                <a href="Index.html">
+                    <img src="images/logo.png" alt="Logo" class="logo">
+                    <h1>Sistema Administrativo Veterinario</h1>
+                </a>
+            </div>
+            <!-- Lista de opciones -->
+            <ul class="nav-list">
+                <li><a href="AgregarContactocliente.html">Cargar Contacto cliente</a></li>
+                <li><a href="AgregarInformacionMascota.html">Cargar Informacion paciente</a></li>
+                <li><a href="ListadoPacientes.html">Listado Pacientes</a></li>
+                <li><a href="ListadoClientes.html">Listado Clientes</a></li>
+                <li><a href="ListadoClientes.html">Listado Citas</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    
+
+    <main >
+        <section class="tabla-container">
+            <div class="tabla-container">
+                <h2>Lista Clientes</h2>
+                <p>Información basica clientes</p>
+                <table class="lista-pacientes" id="tablaPacientes">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Raza</th>
+                            <th>Sexo</th>
+                            <th>Fecha Nacimiento</th>
+                            <th>Peso kg</th>
+                            <th>Estado</th>
+                            <th>H-M</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>0</td>
+                            <td>perro</td>
+                            <td>perro</td>
+                            <td>P</td>
+                            <td>00-00-00</td>
+                            <td>0.0</td>
+                            <td>vivo</td>
+                            <td><a href="historiales/max.pdf" target="_blank" class="historial-link">Ver Historial</a></td>
+                            <td>
+                                <button><img src="images/delete.png"></button>
+                                <button><img src="images/update.png"></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+    <script src="js/listado.js"></script>
+</body>
+</html>

@@ -1,0 +1,169 @@
+/* Estilos generales */
+body {
+    background-color: #f5f5f5;
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Encabezado (Sidebar) */
+.encabezado {
+    background-color: #ffffff;
+    box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.1);
+    width: 25%;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    padding-top: 20px;
+    text-align: center;
+}
+
+.navbar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title-section {
+    width: 100%;
+    padding-bottom: 15px;
+}
+
+.title-section a {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title-section img {
+    width: 50px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.title-section h1 {
+    font-size: 15px;
+    margin: 0;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    white-space: normal;
+}
+
+/* Lista de navegación */
+.nav-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.nav-list li {
+    width: 100%;
+    padding: 15px 0;
+    border-top: 1px solid #ddd;
+    font-size: 12px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.nav-list li:first-child {
+    border-top: none;
+}
+
+.nav-list li a {
+    text-decoration: none;
+    color: #333;
+}
+
+/* Main (contenido principal) */
+main {
+    margin-left: 25%; /* Deja el espacio para el sidebar */
+    width: 100%;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+/* Contenedor de la tabla */
+.tabla-container {
+    width: 100%;
+    overflow-x: auto; /* Permite scroll horizontal si la tabla es muy ancha */
+    -webkit-overflow-scrolling: touch; /* Para un scroll suave en dispositivos táctiles */
+}
+
+/* Contenedor interno que centra la tabla y limita su ancho */
+.tabla-container > div {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Título de la sección */
+.tabla-container h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Estilos de la tabla */
+table.lista-pacientes {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    min-width: 600px; /* Define un ancho mínimo para que se active el scroll en dispositivos pequeños */
+}
+
+table.lista-pacientes th,
+table.lista-pacientes td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    font-size: 12px;
+}
+
+table.lista-pacientes th {
+    background-color: #007BFF;
+    color: white;
+    font-weight: bold;
+}
+
+table.lista-pacientes tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Ajuste de botones (si usas clases o estilos inline para botones) */
+button {
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+/* Media queries para dispositivos pequeños o zoom elevado */
+@media (max-width: 168px) {
+    .encabezado {
+        width: 100%;
+        height: auto;
+        position: relative;
+        padding: 10px;
+    }
+    main {
+        margin-left: 0;
+        width: 100%;
+        padding: 10px;
+    }
+    table.lista-pacientes th,
+    table.lista-pacientes td {
+        padding: 8px;
+        font-size: 10px;
+    }
+}
