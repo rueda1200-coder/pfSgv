@@ -15,7 +15,9 @@
 
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Nunito:300,400,600,700|Poppins:300,400,500,600,700" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Nunito:300,400,600,700|Poppins:300,400,500,600,700"
+    rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="vistas/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -25,13 +27,17 @@
   <link href="vistas/assets/css/style.css" rel="stylesheet">
 </head>
 
-<body>
+<body class="<?php echo isset($_SESSION['usuario']) ? '' : 'toggle-sidebar'; ?>">
+
 
   <!-- Header -->
   <?php include "modulos/header.php"; ?>
 
   <!-- Main -->
   <?php include "modulos/main.php"; ?>
+
+  <!-- side Section -->
+  <?php include "modulos/sidebar.php"; ?>
 
   <!-- Footer -->
   <?php include "modulos/footer.php"; ?>
@@ -41,9 +47,26 @@
     <i class="bi bi-arrow-up-short"></i>
   </a>
 
-  <!-- Scripts -->
-  <script src="vistas/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="vistas/assets/js/main.js"></script>
+<!-- Bootstrap Bundle -->
+<script src="vistas/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<!-- TinyMCE -->
+<script src="vistas/assets/vendor/tinymce/tinymce.min.js"></script>
+
+<!-- Main JS -->
+<script src="vistas/assets/js/main.js"></script>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const toggleBtn = document.querySelector('.toggle-sidebar-btn');
+    toggleBtn?.addEventListener('click', function () {
+      document.body.classList.toggle('toggle-sidebar');
+    });
+  });
+</script>
+
 
 </body>
+
 </html>
