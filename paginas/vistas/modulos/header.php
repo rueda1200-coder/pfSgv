@@ -31,7 +31,7 @@
     <ul class="nav d-flex align-items-center mb-0">
       <?php if (!isset($_SESSION['usuario'])): ?>
         <li class="nav-item">
-          <a class="nav-link px-3" href="login.php">INICIAR SESIÓN</a>
+          <a class="nav-link px-3" href="index.php?route=login">INICIAR SESIÓN</a>
         </li>
       <?php else: ?>
         <li class="nav-item">
