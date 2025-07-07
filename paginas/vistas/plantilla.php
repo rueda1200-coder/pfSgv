@@ -13,6 +13,8 @@
   <link href="vistas/assets/img/favicon.png" rel="icon">
   <link href="vistas/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
   <link
@@ -59,14 +61,7 @@
 <script src="vistas/assets/js/main.js"></script>
 
 
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const toggleBtn = document.querySelector('.toggle-sidebar-btn');
-    toggleBtn?.addEventListener('click', function () {
-      document.body.classList.toggle('toggle-sidebar');
-    });
-  });
-</script>
+
 
 
 
