@@ -27,20 +27,22 @@
   <link href="vistas/assets/css/style.css" rel="stylesheet">
 </head>
 
-<body class="<?php echo isset($_SESSION['usuario']) ? '' : 'toggle-sidebar'; ?>">
+<body>
 
 
-  <!-- Header -->
-  <?php include "modulos/header.php"; ?>
 
-  <!-- Main -->
-  <?php include "modulos/main.php"; ?>
+<?php include "modulos/header.php"; ?>
 
-  <!-- side Section -->
+<?php if (isset($_SESSION['usuario'])): ?>
   <?php include "modulos/sidebar.php"; ?>
+<?php endif; ?>
 
-  <!-- Footer -->
-  <?php include "modulos/footer.php"; ?>
+<?php include "modulos/main.php"; ?>
+
+<?php include "modulos/footer.php"; ?>
+
+
+
 
   <!-- Botón scroll up -->
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center">
@@ -65,6 +67,7 @@
     });
   });
 </script>
+
 
 
 </body>

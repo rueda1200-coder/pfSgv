@@ -1,4 +1,5 @@
-<?php if (!isset($_SESSION)) session_start(); ?>
+<?php if (!isset($_SESSION))
+  session_start(); ?>
 
 <!-- ENCABEZADO FIJO -->
 <header id="header" class="header fixed-top d-flex align-items-center justify-content-between bg-white shadow-sm px-3">
@@ -14,6 +15,7 @@
     <?php if (isset($_SESSION['usuario'])): ?>
       <i class="bi bi-list toggle-sidebar-btn ms-3 fs-4" style="cursor:pointer;"></i>
     <?php endif; ?>
+
   </div>
 
   <!-- BARRA DE BÚSQUEDA (SI HAY SESIÓN) -->
@@ -35,7 +37,7 @@
         </li>
       <?php else: ?>
         <li class="nav-item">
-          <a class="nav-link px-3" href="logout.php">CERRAR SESIÓN</a>
+          <a class="nav-link px-3" href="index.php?route=salir">CERRAR SESIÓN</a>
         </li>
       <?php endif; ?>
     </ul>

@@ -1,3 +1,7 @@
+<?php
+require_once "controladores/login.controlador.php";
+ControladorLogin::ctrIniciarSesion();
+?>
 
 
 <div class="container mt-5">
@@ -8,7 +12,7 @@
           <h4>Iniciar Sesión</h4>
         </div>
         <div class="card-body">
-          <form method="POST" action="">
+          <form method="POST" action="index.php?route=login&action=verify">
             <div class="form-group mb-3">
               <label for="usuario">Usuario</label>
               <input type="text" name="usuario" class="form-control" required>

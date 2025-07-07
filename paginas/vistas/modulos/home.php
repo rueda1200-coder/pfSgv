@@ -1,3 +1,12 @@
+<?php if (isset($_SESSION['usuario'])): ?>
+  <div class="alert alert-success text-center">
+    Bienvenido, <?php echo $_SESSION['nombre']; ?> (<?php echo $_SESSION['rol']; ?>)
+  </div>
+<?php else: ?>
+  <div class="alert alert-info text-center">
+    Para acceder al sistema completo, inicia sesión desde el menú superior.
+  </div>
+<?php endif; ?>
 <!-- home.php -->
 
 <div class="container-fluid px-0">
