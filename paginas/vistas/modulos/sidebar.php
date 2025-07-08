@@ -1,4 +1,9 @@
-<?php if (isset($_SESSION['usuario'])): ?>
+<?php
+if (!isset($_SESSION)) {
+  session_start();
+}
+?>
+
 <aside id="sidebar" class="sidebar">
   <ul class="sidebar-nav" id="sidebar-nav">
 
@@ -20,4 +25,4 @@
 
   </ul>
 </aside>
-<?php endif; ?>
+

@@ -48,8 +48,4 @@
     </nav>
   </header>
 
-  <?php if (isset($_SESSION['usuario'])): ?>
-    <aside id="sidebar" class="sidebar">
-      <!-- Tu estructura actual de sidebar -->
-    </aside>
-  <?php endif; ?>
+
