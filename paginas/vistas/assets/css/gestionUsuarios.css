@@ -1,0 +1,10 @@
+.centered-text {
+  display: flex;
+  justify-content: center; /* Centrar horizontal */
+  align-items: center;     /* Centrar vertical */
+  height: 100vh;           /* Toda la altura del viewport */
+  width: 100%;             /* Ocupar todo el ancho disponible */
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;               /* Quita posibles márgenes */
+}

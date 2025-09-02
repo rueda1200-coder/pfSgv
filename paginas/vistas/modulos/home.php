@@ -18,11 +18,12 @@
         <div class="card-body">
           <section class="intro py-5">
             <div class="row align-items-center">
-              
+
               <!-- Columna de texto -->
               <div class="col-md-8 text-center text-md-start">
                 <h2 class="fw-bold">Bienvenido a nuestro Sistema Administrativo Veterinario</h2>
-                <p class="lead">Gestiona de manera eficiente la información de tus pacientes, historial clínico y proveedores en un solo lugar.</p>
+                <p class="lead">Gestiona de manera eficiente la información de tus pacientes, historial clínico y
+                  proveedores en un solo lugar.</p>
               </div>
 
               <!-- Columna de imagen -->
@@ -49,13 +50,23 @@
             <!-- Servicio 1 -->
             <div class="col-md-3 text-center">
               <div class="p-4 border rounded shadow-sm h-100">
+                <img src="vistas/assets/img/iconoUsuarios.png" alt="Usuarios" style="height: 60px;">
+                <h5 class="mt-3 fw-semibold">Gestion Usuarios</h5>
+                <p class="text-muted">Permite gestionar los usuarios que administran el software.</p>
+                <a href="index.php?route=gestionUsuarios" class="btn btn-primary btn-sm">Ir a Gestion Usuarios</a>
+              </div>
+            </div>
+
+            <!-- Servicio 2 -->
+            <div class="col-md-3 text-center">
+              <div class="p-4 border rounded shadow-sm h-100">
                 <img src="vistas/assets/img/gestion_cita.png" alt="Gestión de Citas" style="height: 60px;">
                 <h5 class="mt-3 fw-semibold">Gestión de Citas</h5>
                 <p class="text-muted">Agenda, organiza y visualiza todas las citas veterinarias de manera sencilla.</p>
               </div>
             </div>
 
-            <!-- Servicio 2 -->
+            <!-- Servicio 3 -->
             <div class="col-md-3 text-center">
               <div class="p-4 border rounded shadow-sm h-100">
                 <img src="vistas/assets/img/consultar_cita.png" alt="Reserva de Citas" style="height: 60px;">
@@ -64,7 +75,8 @@
               </div>
             </div>
 
-            <!-- Servicio 3 -->
+
+            <!-- Servicio 4 -->
             <div class="col-md-3 text-center">
               <div class="p-4 border rounded shadow-sm h-100">
                 <img src="vistas/assets/img/ser-control-citas.png" alt="Consulta Médica" style="height: 60px;">
@@ -73,7 +85,7 @@
               </div>
             </div>
 
-            <!-- Servicio 4 -->
+            <!-- Servicio 5 -->
             <div class="col-md-3 text-center">
               <div class="p-4 border rounded shadow-sm h-100">
                 <img src="vistas/assets/img/bano_mascota.png" alt="Servicio de Baño" style="height: 60px;">

@@ -29,6 +29,7 @@
 
   <!-- Main CSS -->
   <link href="vistas/assets/css/style.css" rel="stylesheet">
+  <link rel="stylesheet" href="vistas/css/gestionUsuarios.css">
 </head>
 
 <body>
