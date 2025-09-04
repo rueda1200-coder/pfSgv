@@ -2,7 +2,10 @@
 
 require_once "controladores/plantilla.controlador.php";
 require_once "controladores/login.controlador.php";
+require_once "controladores/registro.rol.controlador.php";
 
+
+require_once "modelos/registroRol.php";
 require_once "modelos/login.modelo.php";
 
 
@@ -16,6 +19,18 @@ if(
     $controllerLogin->ctrIniciarSesion();
     exit; //evita que cargue la plantilla
 }
+
+if(
+    $_SERVER["REQUEST_METHOD"] === "POST" &&
+    isset($_GET["route"], $_GET["action"]) &&
+    $_GET["route"] == "registroUsuario" &&
+    $_GET["action"] == "verify"
+){
+    $controllerRegistrer = new ControladorUsuarios();
+    $controllerRegistre->ctrRegistrarUsuario();
+    exit; //evita que cargue la plantilla
+}
+
 
 
 

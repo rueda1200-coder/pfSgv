@@ -117,7 +117,7 @@ CREATE TABLE `roles` (
   `descripcion` text DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `nombre` (`nombre`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -126,7 +126,7 @@ CREATE TABLE `roles` (
 
 LOCK TABLES `roles` WRITE;
 /*!40000 ALTER TABLE `roles` DISABLE KEYS */;
-INSERT INTO `roles` VALUES (1,'Administrador','Acceso completo al sistema'),(2,'Recepcionista','Acceso limitado a citas y pacientes');
+INSERT INTO `roles` VALUES (1,'Administrador','Acceso completo al sistema'),(2,'Recepcionista','Acceso limitado a citas y pacientes'),(3,'invitado','Usuario invitado con acceso restringido. Solo puede visualizar, no gestionar.');
 /*!40000 ALTER TABLE `roles` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -176,7 +176,7 @@ CREATE TABLE `usuarios` (
   KEY `creado_por` (`creado_por`),
   CONSTRAINT `usuarios_ibfk_1` FOREIGN KEY (`rol_id`) REFERENCES `roles` (`id`),
   CONSTRAINT `usuarios_ibfk_2` FOREIGN KEY (`creado_por`) REFERENCES `usuarios` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -185,7 +185,7 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES (1,'Admin Principal','admin','$2y$10$p7gI487B9MdcoRXef8y/cu6xHxAls3GBSbgeFDAC0DIBUN.WuDqf2',1,NULL,'2025-07-06 23:43:01');
+INSERT INTO `usuarios` VALUES (1,'Admin Principal','admin','$2y$10$p7gI487B9MdcoRXef8y/cu6xHxAls3GBSbgeFDAC0DIBUN.WuDqf2',1,NULL,'2025-07-06 23:43:01'),(4,'victor','victor12','$2y$10$nmhk2c9EFoDRencKeWuhY..FTG1rDLOWIzIjaEjJ02ZpS4ryyj7mq',2,NULL,'2025-09-04 16:56:34');
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -198,4 +198,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-09-02 12:20:49
+-- Dump completed on 2025-09-04 13:16:01

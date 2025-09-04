@@ -1,6 +1,7 @@
 <main id="main" class="main">
 <?php
-$allowed_routes = ["home", "servicios", "contacto", "login", "gestionUsuarios", "salir", "404"];
+$allowed_routes = ["home", "servicios", "contacto", "login", "gestionUsuarios","configuracionUsuario",
+                    "gestionCitas", "registroUsuario", "salir", "404"];
 
 if (isset($_GET["route"]) && in_array($_GET["route"], $allowed_routes)) {
 
