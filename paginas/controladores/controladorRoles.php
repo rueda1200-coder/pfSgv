@@ -1,4 +1,6 @@
 <?php
+require_once "modelos/ModeloRoles.php";
+
 class ControladorRoles {
 
     /* ==============================
@@ -6,57 +8,58 @@ class ControladorRoles {
     ============================== */
     public static function ctrMostrarRoles() {
         $tabla = "roles";
-        $respuesta = ModeloRoles::mdlMostrarRoles($tabla);
-        return $respuesta;
+        return ModeloRoles::mdlMostrarRoles($tabla);
     }
 
     /* ==============================
        CREAR ROL
     ============================== */
     public function ctrCrearRol() {
-        if (isset($_POST["nuevoRol"]) && !empty($_POST["nuevoRol"])) {
-            $tabla = "roles";
-            $datos = ["nombre" => $_POST["nuevoRol"]];
+        if (!empty($_POST["nombre_rol"])) {
+            $nombreRol = trim($_POST["nombre_rol"]);
+            $respuesta = ModeloRoles::mdlCrearRol($nombreRol);
 
-            $respuesta = ModeloRoles::mdlCrearRol($tabla, $datos);
-
-            if ($respuesta == "ok") {
-                echo '<script>
-                        Swal.fire({
-                          icon: "success",
-                          title: "¡El rol ha sido agregado correctamente!",
-                          showConfirmButton: false,
-                          timer: 1500
-                        }).then(() => {
-                          window.location = "index.php?route=configuracionUsuario";
-                        });
-                      </script>';
-            } else {
-                echo '<script>
-                        Swal.fire({
-                          icon: "error",
-                          title: "Error al agregar rol",
-                          showConfirmButton: true
-                        });
-                      </script>';
-            }
+            $_SESSION["mensaje"] = $respuesta == "ok"
+                ? ["tipo" => "success", "texto" => "Rol creado correctamente"]
+                : ["tipo" => "danger", "texto" => "Error al crear el rol"];
         }
+        header("Location: index.php?route=configuracionUsuario");
+        exit;
     }
 
     /* ==============================
        EDITAR ROL
     ============================== */
     public function ctrEditarRol() {
-        if (isset($_POST["editarRol"]) && !empty($_POST["editarRol"])) {
+        if (!empty($_POST['idRol']) && !empty($_POST['editarRol'])) {
             $tabla = "roles";
             $datos = [
-                "id" => $_POST["idRol"],
-                "nombre" => $_POST["editarRol"]
+                "id" => $_POST['idRol'],
+                "nombre" => trim($_POST['editarRol'])
             ];
 
             $respuesta = ModeloRoles::mdlEditarRol($tabla, $datos);
 
-            return $respuesta;
+            if ($respuesta == "ok") {
+                echo '<script>
+                    Swal.fire({
+                      icon: "success",
+                      title: "¡El rol ha sido actualizado correctamente!",
+                      showConfirmButton: false,
+                      timer: 1500
+                    }).then(() => {
+                      window.location = "index.php?route=configuracionUsuario";
+                    });
+                  </script>';
+            } else {
+                echo '<script>
+                    Swal.fire({
+                      icon: "error",
+                      title: "Error al actualizar rol",
+                      showConfirmButton: true
+                    });
+                  </script>';
+            }
         }
     }
 
@@ -64,11 +67,17 @@ class ControladorRoles {
        ELIMINAR ROL
     ============================== */
     public function ctrEliminarRol() {
-        if (isset($_POST["idRolEliminar"])) {
-            $tabla = "roles";
-            $respuesta = ModeloRoles::mdlEliminarRol($tabla, $_POST["idRolEliminar"]);
+        if (!empty($_POST["idRolEliminar"])) {
+            $tabla = 'roles';
+            $id = intval($_POST["idRolEliminar"]);
+            $respuesta = ModeloRoles::mdlEliminarRol($tabla, $id);
 
-            return $respuesta;
+            $status = $respuesta == "ok" ? "rol_eliminado" : "error_eliminar";
+            header("Location: index.php?route=configuracionUsuario&status=$status");
+            exit();
         }
+
+        header("Location: index.php?route=configuracionUsuario&status=sin_datos");
+        exit();
     }
 }

@@ -1,4 +1,5 @@
 <?php
+require_once "conexion.php";
 
 class ModeloRoles {
 
@@ -6,23 +7,27 @@ class ModeloRoles {
        MOSTRAR ROLES
     ============================== */
     public static function mdlMostrarRoles($tabla) {
-        $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla");
-        $stmt->execute();
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        try {
+            $pdo = Conexion::conectar();
+            $stmt = $pdo->prepare("SELECT * FROM $tabla WHERE id != 1");
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            return [];
+        }
     }
 
     /* ==============================
        CREAR ROL
     ============================== */
-    public static function mdlCrearRol($tabla, $datos) {
-        $stmt = Conexion::conectar()->prepare(
-            "INSERT INTO $tabla (nombre) VALUES (:nombre)"
-        );
-        $stmt->bindParam(":nombre", $datos["nombre"], PDO::PARAM_STR);
+    public static function mdlCrearRol($nombreRol) {
+        try {
+            $pdo = Conexion::conectar();
+            $stmt = $pdo->prepare("INSERT INTO roles (nombre_rol) VALUES (:nombre)");
+            $stmt->bindParam(":nombre", $nombreRol, PDO::PARAM_STR);
 
-        if ($stmt->execute()) {
-            return "ok";
-        } else {
+            return $stmt->execute() ? "ok" : "error";
+        } catch (PDOException $e) {
             return "error";
         }
     }
@@ -31,15 +36,14 @@ class ModeloRoles {
        EDITAR ROL
     ============================== */
     public static function mdlEditarRol($tabla, $datos) {
-        $stmt = Conexion::conectar()->prepare(
-            "UPDATE $tabla SET nombre = :nombre WHERE id = :id"
-        );
-        $stmt->bindParam(":nombre", $datos["nombre"], PDO::PARAM_STR);
-        $stmt->bindParam(":id", $datos["id"], PDO::PARAM_INT);
+        try {
+            $pdo = Conexion::conectar();
+            $stmt = $pdo->prepare("UPDATE $tabla SET nombre_rol = :nombre WHERE id = :id");
+            $stmt->bindParam(":nombre", $datos["nombre"], PDO::PARAM_STR);
+            $stmt->bindParam(":id", $datos["id"], PDO::PARAM_INT);
 
-        if ($stmt->execute()) {
-            return "ok";
-        } else {
+            return $stmt->execute() ? "ok" : "error";
+        } catch (PDOException $e) {
             return "error";
         }
     }
@@ -48,14 +52,17 @@ class ModeloRoles {
        ELIMINAR ROL
     ============================== */
     public static function mdlEliminarRol($tabla, $id) {
-        $stmt = Conexion::conectar()->prepare(
-            "DELETE FROM $tabla WHERE id = :id"
-        );
-        $stmt->bindParam(":id", $id, PDO::PARAM_INT);
+        if ($id == 1) {
+            return "error"; // nunca eliminar admin
+        }
 
-        if ($stmt->execute()) {
-            return "ok";
-        } else {
+        try {
+            $pdo = Conexion::conectar();
+            $stmt = $pdo->prepare("DELETE FROM $tabla WHERE id = :id");
+            $stmt->bindParam(":id", $id, PDO::PARAM_INT);
+
+            return $stmt->execute() ? "ok" : "error";
+        } catch (PDOException $e) {
             return "error";
         }
     }

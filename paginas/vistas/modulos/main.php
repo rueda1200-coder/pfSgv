@@ -1,5 +1,6 @@
 <main id="main" class="main">
 <?php
+
 $allowed_routes = ["home", "servicios", "contacto", "login", "gestionUsuarios","configuracionUsuario",
                     "gestionCitas", "registroUsuario", "salir", "404"];
 
