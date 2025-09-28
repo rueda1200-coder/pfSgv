@@ -86,26 +86,25 @@ class ControladorUsuarios {
     /* ==============================
        EDITAR USUARIO
     ============================== */
-    public function ctrEditarUsuario() {
-        if (isset($_POST["editarNombre"], $_POST["idUsuario"])) {
-            
-            $tabla = "usuarios";
-            $datos = [
-                "id"      => $_POST["idUsuario"],
-                "nombre"  => $_POST["editarNombre"],
-                "usuario" => $_POST["editarUsuario"],
-                "rol_id"  => $_POST["editarRol"]
-            ];
+public function ctrEditarUsuario($datos) {
+    $tabla = "usuarios";
 
-            if (!empty($_POST["editarClave"])) {
-                $datos["clave"] = password_hash($_POST["editarClave"], PASSWORD_BCRYPT);
-            } else {
-                $datos["clave"] = null;
-            }
+    $info = [
+        "id"      => $datos["idUsuario"],
+        "nombre"  => $datos["editarNombre"],
+        "usuario" => $datos["editarUsuario"],
+        "rol_id"  => $datos["editarRol"]
+    ];
 
-            return ModeloUsuarios::mdlEditarUsuario($tabla, $datos);
-        }
+    if (!empty($datos["editarClave"])) {
+        $info["clave"] = password_hash($datos["editarClave"], PASSWORD_BCRYPT);
+    } else {
+        $info["clave"] = null;
     }
+
+    return ModeloUsuarios::mdlEditarUsuario($tabla, $info);
+}
+
 
     /* ==============================
        ELIMINAR USUARIO

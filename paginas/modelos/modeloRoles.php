@@ -1,12 +1,14 @@
 <?php
 require_once "conexion.php";
 
-class ModeloRoles {
+class ModeloRoles
+{
 
     /* ==============================
        MOSTRAR ROLES
     ============================== */
-    public static function mdlMostrarRoles($tabla) {
+    public static function mdlMostrarRoles($tabla)
+    {
         try {
             $pdo = Conexion::conectar();
             $stmt = $pdo->prepare("SELECT * FROM $tabla WHERE id != 1");
@@ -20,10 +22,11 @@ class ModeloRoles {
     /* ==============================
        CREAR ROL
     ============================== */
-    public static function mdlCrearRol($nombreRol) {
+    public static function mdlCrearRol($nombreRol)
+    {
         try {
             $pdo = Conexion::conectar();
-            $stmt = $pdo->prepare("INSERT INTO roles (nombre_rol) VALUES (:nombre)");
+            $stmt = $pdo->prepare("INSERT INTO roles (nombre) VALUES (:nombre)");
             $stmt->bindParam(":nombre", $nombreRol, PDO::PARAM_STR);
 
             return $stmt->execute() ? "ok" : "error";
@@ -35,10 +38,11 @@ class ModeloRoles {
     /* ==============================
        EDITAR ROL
     ============================== */
-    public static function mdlEditarRol($tabla, $datos) {
+    public static function mdlEditarRol($tabla, $datos)
+    {
         try {
             $pdo = Conexion::conectar();
-            $stmt = $pdo->prepare("UPDATE $tabla SET nombre_rol = :nombre WHERE id = :id");
+            $stmt = $pdo->prepare("UPDATE $tabla SET nombre = :nombre WHERE id = :id");
             $stmt->bindParam(":nombre", $datos["nombre"], PDO::PARAM_STR);
             $stmt->bindParam(":id", $datos["id"], PDO::PARAM_INT);
 
@@ -47,11 +51,11 @@ class ModeloRoles {
             return "error";
         }
     }
-
     /* ==============================
        ELIMINAR ROL
     ============================== */
-    public static function mdlEliminarRol($tabla, $id) {
+    public static function mdlEliminarRol($tabla, $id)
+    {
         if ($id == 1) {
             return "error"; // nunca eliminar admin
         }

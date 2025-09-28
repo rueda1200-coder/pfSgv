@@ -1,5 +1,3 @@
-<?php if (!isset($_SESSION)) session_start(); ?>
-
 <!-- ENCABEZADO FIJO -->
 <header id="header" class="header fixed-top d-flex align-items-center justify-content-between bg-white shadow-sm px-3">
 
@@ -17,7 +15,6 @@
         <i class="bi bi-list fs-4"></i>
       </button>
     <?php endif; ?>
-
   </div>
 
   <!-- BARRA DE BÚSQUEDA (SI HAY SESIÓN) -->

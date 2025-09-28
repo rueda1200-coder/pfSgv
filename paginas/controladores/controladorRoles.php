@@ -23,7 +23,7 @@ class ControladorRoles {
                 ? ["tipo" => "success", "texto" => "Rol creado correctamente"]
                 : ["tipo" => "danger", "texto" => "Error al crear el rol"];
         }
-        header("Location: index.php?route=configuracionUsuario");
+        header("Location: index.php?route=configuracionRoles");
         exit;
     }
 

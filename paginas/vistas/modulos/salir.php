@@ -6,6 +6,6 @@ if (session_status() === PHP_SESSION_NONE) {
 session_unset();
 session_destroy();
 
-// Redirecciona utilizando la ruta base esperada
-header("Location: index.php?route=home");
+// Redirige al login después de cerrar sesión
+header("Location: index.php?route=login");
 exit;

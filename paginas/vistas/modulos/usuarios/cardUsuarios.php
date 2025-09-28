@@ -15,31 +15,34 @@
                     <p class="text-muted">Administra los usuarios registrados en el sistema</p>
                     <ul class="list-group list-group-flush" id="listadoUsuarios">
                         <?php
-                        // Controlador que obtiene los usuarios con su rol
+                        // Obtener usuarios desde el controlador
                         $usuarios = ControladorUsuarios::ctrMostrarUsuarios();
 
                         if (!empty($usuarios)):
                             foreach ($usuarios as $usuario): ?>
                                 <li class="list-group-item d-flex justify-content-between align-items-center">
                                     <div>
-                                        <strong><?= htmlspecialchars($usuario["nombre"]); ?></strong> 
+                                        <strong><?= htmlspecialchars($usuario["nombre"]); ?></strong>
                                         <span class="badge bg-info text-dark ms-2">
-                                            <?= htmlspecialchars($usuario["rol_nombre"]); ?>
+                                            <?= htmlspecialchars($usuario["rol_nombre"] ?? "Sin rol"); ?>
                                         </span>
                                         <br>
                                         <small class="text-muted"><?= htmlspecialchars($usuario["usuario"]); ?></small>
                                     </div>
                                     <div>
-                                        <button class="btn btn-warning btn-sm btnEditarUsuario" data-bs-toggle="modal"
-                                            data-bs-target="#modalEditarUsuario"
+                                        <!-- Botón Editar -->
+                                        <button class="btn btn-warning btn-sm btnEditarUsuario"
+                                            data-bs-toggle="modal" data-bs-target="#modalEditarUsuario"
                                             data-id="<?= $usuario["id"]; ?>"
                                             data-nombre="<?= htmlspecialchars($usuario["nombre"]); ?>"
                                             data-usuario="<?= htmlspecialchars($usuario["usuario"]); ?>"
                                             data-rol="<?= $usuario["rol_id"]; ?>">
                                             <i class="fas fa-edit"></i>
                                         </button>
-                                        <button class="btn btn-danger btn-sm btnEliminarUsuario" data-bs-toggle="modal"
-                                            data-bs-target="#modalEliminarUsuario"
+
+                                        <!-- Botón Eliminar -->
+                                        <button class="btn btn-danger btn-sm btnEliminarUsuario"
+                                            data-bs-toggle="modal" data-bs-target="#modalEliminarUsuario"
                                             data-id="<?= $usuario["id"]; ?>"
                                             data-nombre="<?= htmlspecialchars($usuario["nombre"]); ?>">
                                             <i class="fas fa-trash"></i>
@@ -57,8 +60,8 @@
             </div>
 
             <!-- MODALES -->
-            <?php include "modalEditarUsuario.php"; ?>
             <?php include "modalAgregarUsuario.php"; ?>
+            <?php include "modalEditarUsuario.php"; ?>
             <?php include "modalEliminarUsuario.php"; ?>
 
         </div>
@@ -66,4 +69,4 @@
 </div>
 
 <!-- SCRIPT -->
-<script src="vistas/assets/js/configuracionUsuarios.js"></script>
+<script src="vistas/modulos/usuarios/configuracionUsuarios.js"></script>

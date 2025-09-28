@@ -34,9 +34,14 @@ class ModeloUsuarios
     /* ==============================
      MOSTRAR USUARIOS
   ============================== */
-    public static function mdlMostrarUsuarios($tabla)
+    static public function mdlMostrarUsuarios($tabla)
     {
-        $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE id != 1");
+        $stmt = Conexion::conectar()->prepare("
+        SELECT u.id, u.nombre, u.usuario, u.rol_id, r.nombre AS rol_nombre, u.fecha_creacion
+        FROM $tabla u
+        LEFT JOIN roles r ON u.rol_id = r.id
+        WHERE u.id != 1
+    ");
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }

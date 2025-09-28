@@ -50,22 +50,5 @@
     </div>
 </div>
 
-<!-- ALERTAS -->
-<?php
-if (isset($_SESSION["mensaje"])) {
-    $tipo = $_SESSION["mensaje"]["tipo"];
-    $texto = $_SESSION["mensaje"]["texto"];
-    echo "<script>
-        Swal.fire({
-            icon: '$tipo',
-            title: '$texto',
-            showConfirmButton: false,
-            timer: 1500
-        });
-    </script>";
-    unset($_SESSION["mensaje"]);
-}
-?>
-
 <!-- SCRIPT -->
 <script src="vistas/assets/js/configuracionRoles.js"></script>
